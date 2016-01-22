@@ -9,7 +9,7 @@
 @import "../css/neat/neat";
 
 // Our variables
-$base-font-family: "Open Sans", Arial, sans-serif;
+$base-font-family: "Proxima Nova", Arial, sans-serif;
 $title-font-family: Montserrat, Arial, sans-serif;
 $base-font-size:   14px;
 $small-font-size:  $base-font-size * 0.875;
@@ -18,11 +18,12 @@ $base-line-height: 1.5;
 $spacing-unit:     30px;
 
 $text-color:       #1B435D ;
-$background-color: #D9E6E6;
+$background-color: #D8E9F0;
 $brand-color:      #1D556F ;
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
+$second-color:      #5DACBD;
 
 // Width of the content area
 $content-width:    800px;
