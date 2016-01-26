@@ -1,31 +1,58 @@
+$mobile: new-breakpoint(max-width 667px);
+$desktop: new-breakpoint(min-width 850px);
+@font-face {
+    font-family: CircularStdBook;
+    src: url(/fonts/CircularStd-Book.otf);
+}
+
+@font-face {
+    font-family: CircularStdMedium;
+    src: url(/fonts/CircularStd-Medium.otf);
+}
+
+@font-face {
+    font-family: CircularStdBold;
+    src: url(/fonts/CircularStd-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: CircularStdBlack;
+    src: url(/fonts/CircularStd-Black.otf);
+}
 /**body border**/
-.border{
+.border {
     z-index: 999;
-    background-color:#fff;
+    background-color: #fff;
     position: fixed;
 }
 
-.border.top, .border.bottom {
+.border.top,
+.border.bottom {
     height: 10px;
     width: 100%;
 }
 
-.border.left, .border.right {
+.border.left,
+.border.right {
     width: 10px;
     height: 100%;
 }
 
 .border.top {
-    top:0;
+    top: 0;
 }
+
 .border.right {
-    right:0;
+    right: 0;
 }
+
 .border.bottom {
-    bottom:0;
+    bottom: 0;
 }
+
 .border.left {
-    left:0;
+    left: 0;
 }
 
 a {
@@ -33,10 +60,9 @@ a {
 }
 
 .pagination {
-            font-size: 16px;
-
+    font-size: 16px;
     & a {
-        border:none;
+        border: none;
         font-size: 14px;
     }
 }
@@ -45,7 +71,7 @@ a {
  */
 .site-header {
     padding: $spacing-unit 0;
-
+    margin: 0 20px;
 }
 
 .site-title {
@@ -59,81 +85,47 @@ a {
     font-weight: 600;
     letter-spacing: 0.1em;
     border: none;
-    
-
     &,
     &:hover {
         text-decoration: none;
+    }
+    
+    @include media($mobile){
+        width:100%;
     }
 }
 
 .site-nav {
     float: right;
     line-height: 56px;
-
-    .menu-icon {
-        display: none;
+    @include media($mobile){
+        width:100%;
     }
-
     .page-link {
         font-family: $title-font-family;
         text-transform: uppercase;
         color: $second-color;
         line-height: $base-line-height;
         border: none;
-
         // Gaps between nav items, but not on the first one
-        &:not(:first-child) {
+        &:not(first-child) {
             margin-left: 20px;
         }
         &:hover {
-        text-decoration: none;
-    }
-    }
-    
-    .nav-menu {
-        display: none;
-        float:left;
-    }
-
-    @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: 30px;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
-        text-align: right;
-
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
-                }
-            }
+            text-decoration: none;
         }
-
+        .nav-menu {
+            display: none;
+            float: left;
+        }
         .trigger {
             clear: both;
             display: none;
         }
-
         &:hover .trigger {
             display: block;
             padding-bottom: 5px;
         }
-
         .page-link {
             display: block;
             padding: 5px 10px;
@@ -141,32 +133,30 @@ a {
         }
     }
 }
-
 /** Index Page **/
-
-.home-section{
-    //background: $brand-color;
-   padding:150px 0;
-    margin: 0 auto;
+.home-section {
+    margin: 15% 0;
     text-align: center;
 }
 
 .headline {
-font-size: 55px;
-line-height: 67px;
-font-family: $title-font-family;
+    font-size: 55px;
+    line-height: 67px;
+    font-family: $title-font-family;
+    @include media($mobile) {
+        font-size: 36px;
+        line-height: normal;
+    }
 }
 
 .home-hr {
-    width: 403px;
+    max-width: 403px;
     height: 10px;
     background-color: $second-color;
     border-style: solid;
     border-color: #6AC1B8;
     margin: 0 auto;
-}
-
-/**
+}/**
  * Site footer
  */
 .site-footer {
@@ -175,43 +165,18 @@ font-family: $title-font-family;
     font-size: 12px;
     letter-spacing: .2em;
     margin-bottom: 20px;
-
 }
 
-i{
+i {
     color: $text-color;
     padding: 0 5px;
 }
-
-@include media-query($on-laptop) {
-    .footer-col-1,
-    .footer-col-2 {
-        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-        width:         calc(50% - (#{$spacing-unit} / 2));
-    }
-
-    .footer-col-3 {
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-@include media-query($on-palm) {
-    .footer-col {
-        float: none;
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-
-
 /**
  * Page content
  */
 .page-content {
     padding: 20px 0;
-
+        margin: 0 20px;
 }
 
 .page-heading {
@@ -221,7 +186,6 @@ i{
 .post-list {
     margin-left: 0;
     list-style: none;
-
     > li {
         margin-bottom: $spacing-unit;
     }
@@ -230,7 +194,7 @@ i{
 .post-meta {
     font-size: $small-font-size;
     color: $grey-color;
-    text-align: center;    
+    text-align: center;
 }
 
 .date {
@@ -250,18 +214,15 @@ i{
     color: $second-color;
     border: none;
 }
+
 .blog-post {
     margin-bottom: 50px;
 }
-
 /** Pagination **/
-
 .pagination {
     font-weight: 600;
     text-align: center;
 }
-
-
 /**
  * Posts
  */
@@ -275,7 +236,6 @@ i{
     line-height: 1;
     font-weight: 600;
     text-align: center;
-
     @include media-query($on-laptop) {
         font-size: 36px;
     }
@@ -286,26 +246,20 @@ i{
     margin: 0 auto;
     max-width: 100%;
     font-size: 18px;
-
     h2 {
         font-size: 32px;
-
         @include media-query($on-laptop) {
             font-size: 28px;
         }
     }
-
     h3 {
         font-size: 26px;
-
         @include media-query($on-laptop) {
             font-size: 22px;
         }
     }
-
     h4 {
         font-size: 20px;
-
         @include media-query($on-laptop) {
             font-size: 18px;
         }
@@ -313,37 +267,44 @@ i{
 }
 
 /*** Work Pages ***/
-.work-list-item{
+.work {
+    @include outer-container;
+}
+
+.work-list-item {
     @include outer-container;
     border-bottom: 1px solid #fff;
     padding: 20px 0;
-    
-    &:nth-child(5){
+    &:nth-child(5) {
         border: none;
         color: red;
     }
-    
-    & .left{
+    & .left {
         @include span-columns(5);
+        @include media($mobile) {
+            @include span-columns(12);
+        }
     }
-    
-    & .right{
+    & .right {
         @include span-columns(7);
-        margin-top:20px;
+        margin-top: 20px;
+        @include media($mobile) {
+            @include span-columns(12);
+            margin: 0;
+        }
     }
 }
 
-.project-name{
+.project-name {
+    font-family: $title-font-family;
     font-size: 36px;
-    font-weight: 800;
     border: none;
 }
 
 .project-role {
-    text-transform: uppercase; 
+    text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 2px;
-    font-weight: 600;
 }
 
 .work-hr {
@@ -363,42 +324,64 @@ i{
     background: $second-color;
     text-transform: uppercase;
     text-decoration: none;
-    padding:10px 15px;
+    padding: 10px 15px;
     color: #fff;
-    font-weight: 600;
     border: none;
     transition: background 0.2s ease;
-    
     &:hover {
         color: #fff;
-        background: darken($second-color, 10%);
+        background: $brand-color;
     }
 }
 
 .section-header {
     font-size: 24px;
-    font-weight:600;
+    font-weight: 600;
 }
 
 .way {
     @include outer-container;
-    
     & div:nth-child(1) {
-        @include span-columns(4);
-    }
-    
-    & div:nth-child(2) {
         @include span-columns(8);
+    }
+    & div:nth-child(2) {
+        @include span-columns(4);
     }
 }
 
-.illustration, .ui, .animation {
+.illustration,
+.ui,
+.animation {
     -webkit-column-width: 350px;
     -webkit-column-gap: 1em;
-    
     & div {
         margin: 10px auto;
         display: inline-block;
     }
 }
 
+b {
+    font-family: CircularStdBold;
+}
+
+.about {
+    @include outer-container;
+    & div {
+        @include span-columns(6);
+        @include media($mobile) {
+            @include span-columns(12);
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.social a {
+    border: none;
+    &:hover {
+        color: $second-color;
+    }
+}
+
+.social {
+    text-align: center;
+}
