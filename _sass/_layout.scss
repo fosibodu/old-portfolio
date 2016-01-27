@@ -131,6 +131,11 @@ a {
             padding: 5px 10px;
             color: $second-color;
         }
+        @include media($mobile){
+            &:not(first-child){
+                margin-left:10px;
+            }
+    }
     }
 }
 /** Index Page **/
@@ -246,6 +251,7 @@ i {
     margin: 0 auto;
     max-width: 100%;
     font-size: 18px;
+    @include span-columns(12);
     h2 {
         font-size: 32px;
         @include media-query($on-laptop) {
@@ -343,9 +349,15 @@ i {
     @include outer-container;
     & div:nth-child(1) {
         @include span-columns(8);
+        @include media($mobile) {
+            @include span-columns(12);
+        }
     }
     & div:nth-child(2) {
         @include span-columns(4);
+        @include media($mobile) {
+            @include span-columns(12);
+        }
     }
 }
 
