@@ -348,13 +348,13 @@ i {
 .way {
     @include outer-container;
     & div:nth-child(1) {
-        @include span-columns(8);
+        @include span-columns(12);
         @include media($mobile) {
             @include span-columns(12);
         }
     }
-    & div:nth-child(2) {
-        @include span-columns(4);
+    & div:nth-child(n+2) {
+        @include span-columns(6);
         @include media($mobile) {
             @include span-columns(12);
         }
